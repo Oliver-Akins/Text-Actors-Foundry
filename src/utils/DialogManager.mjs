@@ -76,7 +76,63 @@ export class DialogManager {
 		);
 	};
 
+	/**
+	 * Asks the user to provide a simple piece of information, this is primarily
+	 * intended to be used within macros so that it can have better info gathering
+	 * as needed.
+	 */
+	static async ask(data, opts = {}) {
+		if (!data.question) {
+			throw new Error(`Asking the user for input must contain a question`);
+		}
+		data.inputType ??= `text`;
+		data.initialValue ??= ``;
+
+		opts.title ??= `System Question`;
+		opts.jQuery = true;
+
+		const content = await renderTemplate(
+			`systems/${game.system.id}/templates/Dialogs/ask.hbs`,
+			data,
+		);
+
+		return new Promise((resolve, reject) => {
+			DialogManager.createOrFocus(
+				data.question,
+				{
+					content,
+					buttons: {
+						confirm: {
+							label: `Confirm`,
+							callback: (html) => {
+								const element = html.find(`.user-input`)[0];
+								let value = element.value;
+								switch (data.inputType) {
+									case `number`:
+										value = parseFloat(value);
+										break;
+									case `checkbox`:
+										value = element.checked;
+										break;
+								}
+								Logger.debug(`Ask response: ${value} (type: ${typeof value})`);
+								resolve(value);
+							},
+						},
+						cancel: {
+							label: `Cancel`,
+							callback: () => reject(),
+						},
+					},
+				},
+				opts,
+			);
+		});
+	};
+
 	static get size() {
 		return DialogManager.#dialogs.size;
 	}
 };
+
+globalThis.DialogManager = DialogManager;

@@ -9,6 +9,7 @@ import { PlayerData } from "./documents/Actor/Player/Model.mjs";
 
 // Misc Imports
 import "./utils/logger.mjs";
+import "./utils/DialogManager.mjs";
 import { registerCustomComponents } from "./components/_index.mjs";
 import { registerHandlebarsHelpers } from "./helpers/_index.mjs";
 import { registerSettings } from "./settings/_index.mjs";

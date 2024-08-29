@@ -1,3 +1,7 @@
+.dialog-content:not(:only-child) {
+  margin-bottom: 8px;
+}
+
 .actor--player.style-v1 {
   --header-size: 75px;
 }
@@ -35,4 +39,4 @@
   height: auto;
 }
 
-/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../styles/v1/player/root.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAAA;EACC;;AAEA;EACC;EACA;EACA;;AAGD;EACC;EACA;EACA;EACA;;AAGD;EACC;EACA;EACA;EACA;EACA;;AAGD;EACC;EACA;EACA;EACA;;AAGD;EACC;EACA;EACA;EACA;;AAEA;EACC%22,%22file%22:%22root.css%22%7D */
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../styles/v1/Dialog.scss%22,%22../styles/v1/player/root.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAAA;EACC;;;ACDD;EACC;;AAEA;EACC;EACA;EACA;;AAGD;EACC;EACA;EACA;EACA;;AAGD;EACC;EACA;EACA;EACA;EACA;;AAGD;EACC;EACA;EACA;EACA;;AAGD;EACC;EACA;EACA;EACA;;AAEA;EACC%22,%22file%22:%22root.css%22%7D */

@@ -30,6 +30,7 @@ export default [
 				ChatMessage: `readonly`,
 				ActiveEffect: `readonly`,
 				Dialog: `readonly`,
+				renderTemplate: `readonly`,
 			},
 		},
 	},
