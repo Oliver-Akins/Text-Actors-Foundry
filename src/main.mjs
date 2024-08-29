@@ -4,6 +4,8 @@ import { ActorProxy } from "./documents/Actor/_proxy.mjs";
 import { ChatMessageProxy } from "./documents/ChatMessage/_proxy.mjs";
 import { ItemProxy } from "./documents/Item/_proxy.mjs";
 
+// DataModel Imports
+import { PlayerData } from "./documents/Actor/Player/Model.mjs";
 
 // Misc Imports
 import "./utils/logger.mjs";
@@ -18,6 +20,9 @@ Hooks.once(`init`, () => {
 	CONFIG.ActiveEffect.legacyTransferral = false;
 
 	registerSettings();
+
+	// Data Models
+	CONFIG.Actor.dataModels.player = PlayerData;
 
 	// Update document classes
 	CONFIG.Actor.documentClass = ActorProxy;

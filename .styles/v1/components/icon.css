@@ -1,0 +1,24 @@
+/*
+Disclaimer: This CSS is used by a custom web component and is scoped to JUST
+the corresponding web component. Importing this into other files is forbidden
+*/
+:host {
+  display: inline-block;
+}
+
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+svg {
+  width: var(--size, 1rem);
+  height: var(--size, 1rem);
+  fill: var(--fill);
+  stroke: var(--stroke);
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../../../styles/v1/components/icon.scss%22,%22../../../styles/v1/components/common.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAAA;AAAA;AAAA;AAAA;ACIA;EACC;;;ADID;EACC;EACA;EACA;EACA;EACA;;;AAGD;EACC;EACA;EACA;EACA%22,%22file%22:%22icon.css%22%7D */

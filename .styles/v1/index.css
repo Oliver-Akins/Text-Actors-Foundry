@@ -1,0 +1,38 @@
+.actor--player.style-v1 {
+  --header-size: 75px;
+}
+.actor--player.style-v1 form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.actor--player.style-v1 .header-row {
+  display: flex;
+  flex-direction: row;
+  border-radius: 4px;
+  border: 1px solid var(--color-underline-header);
+}
+.actor--player.style-v1 .avatar {
+  --size: var(--header-size);
+  width: var(--size);
+  height: var(--size);
+  border: none;
+  border-right: 1px solid var(--color-underline-header);
+}
+.actor--player.style-v1 .actor-name {
+  height: var(--header-size);
+  padding: 8px 1rem;
+  font-size: clamp(1rem, 2rem, var(--header-size) - 16px);
+  border: none;
+}
+.actor--player.style-v1 prose-mirror {
+  --menu-background: rgba(0, 0, 0, 0.1);
+  flex-grow: 1;
+  border: 1px solid var(--color-underline-header);
+  border-radius: 4px;
+}
+.actor--player.style-v1 prose-mirror .editor-container {
+  height: auto;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../../styles/v1/player/root.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAAA;EACC;;AAEA;EACC;EACA;EACA;;AAGD;EACC;EACA;EACA;EACA;;AAGD;EACC;EACA;EACA;EACA;EACA;;AAGD;EACC;EACA;EACA;EACA;;AAGD;EACC;EACA;EACA;EACA;;AAEA;EACC%22,%22file%22:%22index.css%22%7D */

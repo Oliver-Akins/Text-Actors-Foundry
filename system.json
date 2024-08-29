@@ -1,6 +1,6 @@
 {
-	"id": "fst",
-	"title": "Foundry System Template",
+	"id": "taf",
+	"title": "Text-Based Actors",
 	"description": "",
 	"version": "0.0.0",
 	"download": "",
@@ -15,12 +15,16 @@
 	"esmodules": [
 		"src/main.mjs"
 	],
-	"styles": [],
+	"styles": [
+		".styles/root.css"
+	],
 	"packs": [],
 	"documentTypes": {
 		"Actor": {
 			"player": {
-				"htmlFields": [],
+				"htmlFields": [
+					"content"
+				],
 				"filePathFields": {}
 			}
 		},
