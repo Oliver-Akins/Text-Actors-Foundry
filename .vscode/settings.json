@@ -1,0 +1,18 @@
+{
+	"files.autoSave": "onWindowChange",
+	"editor.tabSize": 2,
+	"[yaml,yml]": {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2
+	},
+	"git.branchProtection": [],
+	"files.exclude": {
+		"*.lock": true,
+		".styles": true,
+		"node_modules": true,
+		"packs": true,
+	},
+	"html.customData": [
+		"./.vscode/components.html-data.json"
+	]
+}

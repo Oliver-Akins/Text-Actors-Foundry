@@ -1,0 +1,35 @@
+{
+	"id": "fst",
+	"title": "Foundry System Template",
+	"description": "",
+	"version": "0.0.0",
+	"download": "",
+	"manifest": "",
+	"url": "",
+	"compatibility": {
+		"minimum": 12,
+		"verified": 12,
+		"maximum": 12
+	},
+	"authors": [],
+	"esmodules": [
+		"src/main.mjs"
+	],
+	"styles": [],
+	"packs": [],
+	"documentTypes": {
+		"Actor": {
+			"player": {
+				"htmlFields": [],
+				"filePathFields": {}
+			}
+		},
+		"Item": {}
+	},
+	"flags": {
+		"hotReload": {
+			"extensions": ["css", "hbs", "json", "js", "mjs", "svg"],
+			"paths": ["templates", "langs", ".styles", "module", "assets"]
+		}
+	}
+}
