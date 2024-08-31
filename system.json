@@ -2,16 +2,21 @@
 	"id": "taf",
 	"title": "Text-Based Actors",
 	"description": "",
-	"version": "0.0.0",
-	"download": "",
-	"manifest": "",
-	"url": "",
+	"version": "1.0.0",
+	"download": "https://github.com/Oliver-Akins/Text-Actors-Foundry/releases/latest/download/dotdungeon.zip",
+	"manifest": "https://github.com/Oliver-Akins/Text-Actors-Foundry/releases/latest/download/system.json",
+	"url": "https://github.com/Oliver-Akins/Text-Actors-Foundry",
 	"compatibility": {
 		"minimum": 12,
 		"verified": 12,
 		"maximum": 12
 	},
-	"authors": [],
+	"authors": [
+		{
+			"name": "Oliver Akins",
+			"url": "https://oliver.akins.me"
+		}
+	],
 	"esmodules": [
 		"src/main.mjs"
 	],
