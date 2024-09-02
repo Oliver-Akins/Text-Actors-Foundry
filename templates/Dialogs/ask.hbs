@@ -1,12 +1,27 @@
-<div>
+<div class="ask-dialog">
 	<p>
-		{{question}}
+		{{ question }}
 	</p>
-	<input
-		type="{{inputType}}"
-		value="{{initialValue}}"
-		checked="{{initialValue}}"
-		class="user-input"
-		autofocus
-	>
+	{{#each inputs as | i | }}
+		<div class="prompt">
+			<label
+				for="{{i.id}}"
+				class="prompt__label"
+			>
+				{{ i.label }}
+			</label>
+			<input
+				type="{{i.inputType}}"
+				id="{{i.id}}"
+				class="patrons__input"
+				{{i.valueAttribute}}="{{i.defaultValue}}"
+				{{#if i.autofocus}}autofocus{{/if}}
+			>
+			{{#if i.details}}
+				<p class="prompt__details">
+					{{{ i.details }}}
+				</p>
+			{{/if}}
+		</div>
+	{{/each}}
 </div>

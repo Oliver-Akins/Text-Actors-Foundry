@@ -1,17 +1,29 @@
 async function rollDice() {
-
-	const statBase = await DialogManager.ask({
-		question: `How many dice to roll?`,
-		initialValue: 2,
-		inputType: `number`,
-	});
-
-	if (!statBase) {
-		return;
-	}
-
 	const sidesOnDice = 6;
-	const successThreshold = 4;
+
+	const answers = await DialogManager.ask({
+		id: `eat-the-reich-dice-pool`,
+		question: `Set up your dice pool:`,
+		inputs: [
+			{
+				inputType: `number`,
+				defaultValue: 2,
+				label: `Number of Dice`,
+				autofocus: true,
+			},
+			{
+				inputType: `number`,
+				defaultValue: 4,
+				label: `Success Threshold (d${sidesOnDice} >= X)`,
+			},
+			{
+				inputType: `checkbox`,
+				defaultValue: true,
+				label: `Enable Criticals`,
+			},
+		],
+	});
+	const [ statBase, successThreshold, critsEnabled ] = Object.values(answers);
 
 	let successes = 0;
 	const results = [];
@@ -22,14 +34,17 @@ async function rollDice() {
 		if (r.total >= successThreshold) {
 			successes++;
 		}
-		if (r.total === sidesOnDice) {
+		if (r.total === sidesOnDice && critsEnabled) {
 			successes++;
 		}
 	}
 
-	await ChatMessage.create({
+	const m = new ChatMessage({
+		title: `Dice Pool`,
 		content: `Rolled: ${results.join(`, `)}<br>Successes: ${successes}`,
 	});
+	m.applyRollMode(game.settings.get(`core`, `rollMode`));
+	ui.chat.postOne(m);
 }
 
 rollDice()

@@ -79,49 +79,89 @@ export class DialogManager {
 	/**
 	 * Asks the user to provide a simple piece of information, this is primarily
 	 * intended to be used within macros so that it can have better info gathering
-	 * as needed.
+	 * as needed. This returns an object of input labels to the value the user
+	 * input for that label, if there is only one input, this will return the value
+	 * without an object wrapper, allowing for easier access.
 	 */
 	static async ask(data, opts = {}) {
-		if (!data.question) {
-			throw new Error(`Asking the user for input must contain a question`);
+		if (!data.id) {
+			throw new Error(`Asking the user for input must contain an ID`);
 		}
-		data.inputType ??= `text`;
-		data.initialValue ??= ``;
+		if (!data.inputs.length) {
+			throw new Error(`Must include at least one input specification when prompting the user`);
+		}
 
-		opts.title ??= `System Question`;
+		let autofocusClaimed = false;
+		for (const i of data.inputs) {
+			i.id ??= foundry.utils.randomID(16);
+			i.inputType ??= `text`;
+
+			// Only ever allow one input to claim autofocus
+			i.autofocus &&= !autofocusClaimed;
+			autofocusClaimed ||= i.autofocus;
+
+			// Set the value's attribute name if it isn't specified explicitly
+			if (!i.valueAttribute) {
+				switch (i.inputType) {
+					case `checkbox`:
+						i.valueAttribute = `checked`;
+						break;
+					default:
+						i.valueAttribute = `value`;
+				};
+			};
+		};
+
 		opts.jQuery = true;
+		data.default ??= `confirm`;
+		data.title ??= `System Question`;
 
-		const content = await renderTemplate(
+		data.content = await renderTemplate(
 			`systems/${game.system.id}/templates/Dialogs/ask.hbs`,
 			data,
 		);
 
 		return new Promise((resolve, reject) => {
 			DialogManager.createOrFocus(
-				data.question,
+				data.id,
 				{
-					content,
+					...data,
 					buttons: {
 						confirm: {
 							label: `Confirm`,
 							callback: (html) => {
-								const element = html.find(`.user-input`)[0];
-								let value = element.value;
-								switch (data.inputType) {
-									case `number`:
-										value = parseFloat(value);
-										break;
-									case `checkbox`:
-										value = element.checked;
-										break;
+								const answers = {};
+
+								/*
+								Retrieve the answer for every input provided using the ID
+								determined during initial data prep, and assign the value
+								to the property of the label in the object.
+								*/
+								for (const i of data.inputs) {
+									const element = html.find(`#${i.id}`)[0];
+									let value = element.value;
+									switch (i.inputType) {
+										case `number`:
+											value = parseFloat(value);
+											break;
+										case `checkbox`:
+											value = element.checked;
+											break;
+									}
+									Logger.debug(`Ask response: ${value} (type: ${typeof value})`);
+									answers[i.label] = value;
+									if (data.inputs.length === 1) {
+										resolve(value);
+										return;
+									}
 								}
-								Logger.debug(`Ask response: ${value} (type: ${typeof value})`);
-								resolve(value);
+
+								resolve(answers);
 							},
 						},
 						cancel: {
 							label: `Cancel`,
-							callback: () => reject(),
+							callback: () => reject(`User cancelled the prompt`),
 						},
 					},
 				},

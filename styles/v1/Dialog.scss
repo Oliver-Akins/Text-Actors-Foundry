@@ -1,3 +1,12 @@
 .dialog-content:not(:only-child) {
 	margin-bottom: 8px;
 }
+
+.dialog-content {
+	p {
+		margin: 0;
+	}
+	.prompt {
+		margin-top: 8px;
+	}
+}
