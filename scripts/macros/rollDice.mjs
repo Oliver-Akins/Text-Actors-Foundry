@@ -24,6 +24,7 @@ async function rollDice() {
 		],
 	});
 	const [ statBase, successThreshold, critsEnabled ] = Object.values(answers);
+	const rollMode = game.settings.get(`core`, `rollMode`);
 
 	let successes = 0;
 	const results = [];
@@ -39,12 +40,19 @@ async function rollDice() {
 		}
 	}
 
-	const m = new ChatMessage({
-		title: `Dice Pool`,
-		content: `Rolled: ${results.join(`, `)}<br>Successes: ${successes}`,
-	});
-	m.applyRollMode(game.settings.get(`core`, `rollMode`));
-	ui.chat.postOne(m);
+	const chatData = ChatMessage.applyRollMode(
+		{
+			title: `Dice Pool`,
+			content: `Rolled: ${taf.utils.hideMessageText(results.join(`, `))}<br>Successes: ${taf.utils.hideMessageText(successes)}`,
+			flags: { taf: {
+				rollModedContent: true,
+				rollMode,
+			} },
+		},
+		rollMode,
+	);
+
+	await ChatMessage.implementation.create(chatData);
 }
 
 rollDice()

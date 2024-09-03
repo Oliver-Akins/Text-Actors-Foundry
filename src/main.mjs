@@ -7,7 +7,12 @@ import { ItemProxy } from "./documents/Item/_proxy.mjs";
 // DataModel Imports
 import { PlayerData } from "./documents/Actor/Player/Model.mjs";
 
+// Hook Imports
+import "./hooks/renderChatMessage.mjs";
+import "./hooks/hotReload.mjs";
+
 // Misc Imports
+import "./utils/globalTaf.mjs";
 import "./utils/logger.mjs";
 import "./utils/DialogManager.mjs";
 import { registerCustomComponents } from "./components/_index.mjs";
