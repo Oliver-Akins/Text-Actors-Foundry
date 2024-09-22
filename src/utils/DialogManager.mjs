@@ -79,7 +79,7 @@ export class DialogManager {
 	/**
 	 * Asks the user to provide a simple piece of information, this is primarily
 	 * intended to be used within macros so that it can have better info gathering
-	 * as needed. This returns an object of input labels to the value the user
+	 * as needed. This returns an object of input keys/labels to the value the user
 	 * input for that label, if there is only one input, this will return the value
 	 * without an object wrapper, allowing for easier access.
 	 */
@@ -149,7 +149,7 @@ export class DialogManager {
 											break;
 									}
 									Logger.debug(`Ask response: ${value} (type: ${typeof value})`);
-									answers[i.label] = value;
+									answers[i.key ?? i.label] = value;
 									if (data.inputs.length === 1) {
 										resolve(value);
 										return;
