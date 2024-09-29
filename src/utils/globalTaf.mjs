@@ -1,11 +1,11 @@
-import { FEATURE_FLAGS } from "../consts.mjs";
 import { hideMessageText } from "./feature_flags/rollModeMessageContent.mjs";
 
 globalThis.taf = Object.freeze({
-	utils: {
+	utils: Object.freeze({
 		hideMessageText,
-	},
-	const: {
-		FEATURE_FLAGS,
+	}),
+	FEATURES: {
+		ROLL_MODE_CONTENT: false,
+		STORABLE_SHEET_SIZE: false,
 	},
 });

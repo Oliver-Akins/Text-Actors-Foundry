@@ -31,6 +31,7 @@ export default [
 				ActiveEffect: `readonly`,
 				Dialog: `readonly`,
 				renderTemplate: `readonly`,
+				TextEditor: `readonly`,
 			},
 		},
 	},
@@ -42,6 +43,7 @@ export default [
 		languageOptions: {
 			globals: {
 				Logger: `readonly`,
+				taf: `readonly`,
 			},
 		},
 		rules: {

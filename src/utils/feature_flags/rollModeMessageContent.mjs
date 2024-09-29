@@ -1,8 +1,5 @@
-import { FEATURE_FLAGS } from "../../consts.mjs";
-
 export function hideMessageText(content) {
-	const featureFlags = game.settings.get(game.system.id, `flags`);
-	const hideContent = featureFlags.includes(FEATURE_FLAGS.ROLLMODECONTENT);
+	const hideContent = taf.FEATURES.ROLL_MODE_CONTENT;
 	if (hideContent) {
 		return `-=${content}=-`;
 	}
