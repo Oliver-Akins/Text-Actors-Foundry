@@ -8,6 +8,12 @@ import { DialogManager } from "../../utils/DialogManager.mjs";
  * @returns The augmented class
  */
 export function SizeStorable(cls) {
+
+	// Don't augment class when the feature isn't enabled
+	if (!taf.FEATURES.STORABLE_SHEET_SIZE) {
+		return cls;
+	}
+
 	return class SizeStorableClass extends cls {
 		constructor(doc, opts) {
 
