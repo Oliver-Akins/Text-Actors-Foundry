@@ -1,4 +1,6 @@
-export class PlayerSheetv1 extends ActorSheet {
+import { SizeStorable } from "../mixins/SizeStorable.mjs";
+
+export class PlayerSheetv1 extends SizeStorable(ActorSheet) {
 	static get defaultOptions() {
 		let opts = foundry.utils.mergeObject(
 			super.defaultOptions,
