@@ -44,7 +44,7 @@ Hooks.once(`init`, () => {
 
 
 // MARK: ready hook
-Hooks.once( `ready`, () => {
+Hooks.once(`ready`, () => {
 	Logger.info(`Ready`);
 
 	let defaultTab = game.settings.get(game.system.id, `defaultTab`);
@@ -55,5 +55,10 @@ Hooks.once( `ready`, () => {
 			Logger.debug(`Switching sidebar tab to:`, defaultTab);
 			ui.sidebar.tabs[defaultTab].activate();
 		};
+	};
+
+	if (game.settings.get(game.system.id, `devMode`)) {
+		console.log(`%cFeature Flags:`, `color: #00aa00; font-style: bold; font-size: 1.5rem;`);
+		Logger.table(taf.FEATURES);
 	};
 });
