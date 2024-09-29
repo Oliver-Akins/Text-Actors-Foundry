@@ -49,6 +49,7 @@ export default [
 			"func-names": [`warn`, `as-needed`],
 			"grouped-accessor-pairs": `error`,
 			"no-alert": `error`,
+			"no-empty": [`error`, { allowEmptyCatch: true }],
 			"no-implied-eval": `error`,
 			"no-invalid-this": `error`,
 			"no-lonely-if": `error`,
