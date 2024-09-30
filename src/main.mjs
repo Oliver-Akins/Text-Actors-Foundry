@@ -1,7 +1,5 @@
 // Document Imports
-import { ActiveEffectProxy } from "./documents/ActiveEffect/_proxy.mjs";
 import { ActorProxy } from "./documents/Actor/_proxy.mjs";
-import { ChatMessageProxy } from "./documents/ChatMessage/_proxy.mjs";
 import { ItemProxy } from "./documents/Item/_proxy.mjs";
 
 // DataModel Imports
@@ -33,8 +31,6 @@ Hooks.once(`init`, () => {
 	// Update document classes
 	CONFIG.Actor.documentClass = ActorProxy;
 	CONFIG.Item.documentClass = ItemProxy;
-	CONFIG.ActiveEffect.documentClass = ActiveEffectProxy;
-	CONFIG.ChatMessage.documentClass = ChatMessageProxy;
 	registerSheets();
 
 	registerHandlebarsHelpers();
