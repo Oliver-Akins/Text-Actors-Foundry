@@ -1,0 +1,29 @@
+<form autocomplete="off">
+	<div class="header-row">
+		<img
+			class="avatar"
+			src="{{item.img}}"
+			data-edit="img"
+			title="{{item.name}}"
+		/>
+		<input
+			type="text"
+			name="name"
+			value="{{item.name}}"
+			class="item-name"
+		>
+	</div>
+	{{#if editable}}
+		<prose-mirror
+			class="item-text"
+			name="system.content"
+			value="{{system.content}}"
+			collaborate="true"
+			data-document-uuid="{{item.uuid}}"
+		>
+			{{{enriched.system.content}}}
+		</prose-mirror>
+	{{else}}
+		{{{enriched.system.content}}}
+	{{/if}}
+</form>

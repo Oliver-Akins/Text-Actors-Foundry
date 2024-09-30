@@ -33,7 +33,14 @@
 				"filePathFields": {}
 			}
 		},
-		"Item": {}
+		"Item": {
+			"Generic": {
+				"htmlFields": [
+					"content"
+				],
+				"filePathFields": {}
+			}
+		}
 	},
 	"flags": {
 		"hotReload": {

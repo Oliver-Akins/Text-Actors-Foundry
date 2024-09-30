@@ -1,3 +1,4 @@
+import { ItemSheetv1 } from "./Item/v1.mjs";
 import { PlayerSheetv1 } from "./Player/v1.mjs";
 
 export function registerSheets() {
@@ -6,6 +7,9 @@ export function registerSheets() {
 	Actors.registerSheet(game.system.id, PlayerSheetv1, {
 		makeDefault: true,
 		types: [`player`],
-		label: `Hello`,
+	});
+
+	Items.registerSheet(game.system.id, ItemSheetv1, {
+		makeDefault: true,
 	});
 };

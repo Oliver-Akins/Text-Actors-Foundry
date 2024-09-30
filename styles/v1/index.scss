@@ -2,4 +2,5 @@
 
 @use "./Dialog.scss";
 
-@use "./player/root.scss";
+@use "./player/root.scss" as *;
+@use "./item/root.scss" as *;
