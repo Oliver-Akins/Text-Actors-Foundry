@@ -5,16 +5,15 @@ implementation.
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/O1R222FSP7)
 
-## Unlisted Releases
-Some of the versions of Text-Based Actors are not available in the [Releases list](https://git.varify.ca/Foundry/taf/releases),
-these versions are installable manually by using the appropriate manifest link
-below:
+## Contributing
+This system is open to contributions, however not for anything that does not have
+a corresponding issue in [the issue tracker](https://git.varify.ca/Foundry/taf/issues).
+Any pull requests for features not included in the issue tracker are unlikely to
+be merged. Bug fixes are accepted without a corresponding issue, though it is
+preferred that you still make an issue for it before starting work on it.
 
-| Version | Manifest URL
-| ------- | ------------
-| v2.2.1  | https://cdn.varify.ca/Foundry/taf/v2.2.1/system.json
-| v2.2.0  | https://cdn.varify.ca/Foundry/taf/v2.2.0/system.json
-| v2.1.0  | https://cdn.varify.ca/Foundry/taf/v2.1.0/system.json
-| v2.0.0  | https://cdn.varify.ca/Foundry/taf/v2.0.0/system.json
-| v1.1.0  | https://cdn.varify.ca/Foundry/taf/v1.1.0/system.json
-| v1.0.0  | https://cdn.varify.ca/Foundry/taf/v1.0.0/system.json
+> <span class="warning"></span> You must not use ANY AI tools while contributing
+> to this codebase, if you do your PR will be closed without consideration.
+
+> <span class="info"></span> Oliver reserves the right to close any pull
+> requests that do not match the vision for this system.
